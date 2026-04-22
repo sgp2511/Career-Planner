@@ -1,0 +1,84 @@
+{
+  "destination": "united_kingdom",
+  "destination_display": "United Kingdom",
+  "role": "product_manager",
+  "role_display": "Product Manager",
+  "salary": {
+    "min": 45000,
+    "median": 60000,
+    "max": 85000,
+    "currency_code": "GBP",
+    "data_confidence": "estimated"
+  },
+  "work_authorisation": {
+    "routes": [
+      {
+        "name": "Skilled Worker Visa",
+        "type": "work_visa",
+        "sponsorship_required": true,
+        "processing_time_months": { "min": 3, "max": 8 },
+        "eligibility_criteria": [
+          "Job offer from a UK employer with a valid sponsor licence",
+          "Role must be at RQF Level 3 or above (Product Manager qualifies)",
+          "Minimum salary of GBP 38,700 or the 'going rate' for the role, whichever is higher",
+          "English language proficiency at B1 CEFR level or above",
+          "Must have enough savings to support yourself (at least GBP 1,270)"
+        ],
+        "salary_threshold": 38700,
+        "data_confidence": "verified"
+      },
+      {
+        "name": "Global Talent Visa",
+        "type": "talent_visa",
+        "sponsorship_required": false,
+        "processing_time_months": { "min": 1, "max": 3 },
+        "eligibility_criteria": [
+          "Endorsement from Tech Nation (for digital technology)",
+          "Evidence of exceptional talent or exceptional promise in tech",
+          "No job offer required — can work flexibly",
+          "Highly competitive — requires strong portfolio of achievements"
+        ],
+        "salary_threshold": null,
+        "data_confidence": "verified"
+      },
+      {
+        "name": "Graduate Visa (if applicable)",
+        "type": "post_study_visa",
+        "sponsorship_required": false,
+        "processing_time_months": { "min": 1, "max": 2 },
+        "eligibility_criteria": [
+          "Must have completed a degree at a UK university with Student visa",
+          "Allows 2 years of work (3 years for PhD) with no restrictions",
+          "Not applicable if candidate did not study in the UK"
+        ],
+        "salary_threshold": null,
+        "data_confidence": "verified"
+      }
+    ],
+    "data_confidence": "verified"
+  },
+  "credentials": {
+    "required_qualifications": [
+      "Bachelor's degree in any field (Business, Engineering, or Technology preferred)",
+      "3-5 years product management experience for mid-level, 5+ for senior",
+      "Experience with agile methodologies and product lifecycle management"
+    ],
+    "language_requirements": [
+      "English — native or near-native proficiency required",
+      "IELTS 6.0+ overall (or equivalent) for Skilled Worker Visa"
+    ],
+    "degree_equivalency_notes": "Indian degrees from UGC-recognised universities are accepted. UK ENIC (formerly NARIC) provides official equivalency statements. B.Tech/MBA from reputed institutions are well-regarded.",
+    "data_confidence": "estimated"
+  },
+  "timeline": {
+    "typical_hiring_duration_months": { "min": 1, "max": 3 },
+    "visa_processing_months": { "min": 3, "max": 8 },
+    "total_estimated_months": { "min": 4, "max": 11 },
+    "data_confidence": "estimated"
+  },
+  "market_demand": {
+    "level": "medium",
+    "scale_definition": "Scale: low | medium | high | very_high — based on job posting volume, employer sponsorship willingness, and shortage occupation list inclusion. 'medium' = steady demand for the role but competitive market; not on shortage occupation list.",
+    "data_confidence": "estimated"
+  }
+}

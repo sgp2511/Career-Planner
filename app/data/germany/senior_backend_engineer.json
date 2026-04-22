@@ -1,0 +1,82 @@
+{
+  "destination": "germany",
+  "destination_display": "Germany",
+  "role": "senior_backend_engineer",
+  "role_display": "Senior Backend Engineer",
+  "salary": {
+    "min": 55000,
+    "median": 65000,
+    "max": 85000,
+    "currency_code": "EUR",
+    "data_confidence": "estimated"
+  },
+  "work_authorisation": {
+    "routes": [
+      {
+        "name": "EU Blue Card",
+        "type": "work_visa",
+        "sponsorship_required": true,
+        "processing_time_months": { "min": 2, "max": 4 },
+        "eligibility_criteria": [
+          "Recognised university degree or equivalent qualification",
+          "Binding job offer or employment contract",
+          "Minimum annual gross salary of EUR 43,800 for shortage occupations (IT)",
+          "Salary must meet or exceed the threshold — no exceptions"
+        ],
+        "salary_threshold": 43800,
+        "data_confidence": "verified"
+      },
+      {
+        "name": "National Work Visa (Section 18b AufenthG)",
+        "type": "work_visa",
+        "sponsorship_required": true,
+        "processing_time_months": { "min": 3, "max": 6 },
+        "eligibility_criteria": [
+          "Recognised university degree",
+          "Employment contract with a German employer",
+          "Approval from the Federal Employment Agency (BA)"
+        ],
+        "salary_threshold": null,
+        "data_confidence": "estimated"
+      },
+      {
+        "name": "Job Seeker Visa",
+        "type": "job_seeker_visa",
+        "sponsorship_required": false,
+        "processing_time_months": { "min": 1, "max": 3 },
+        "eligibility_criteria": [
+          "Recognised university degree",
+          "Proof of financial means for the stay (approx EUR 11,208 in blocked account)",
+          "Valid for 6 months — must find employment in that period",
+          "Cannot work on this visa — must convert to work visa after job offer"
+        ],
+        "salary_threshold": null,
+        "data_confidence": "verified"
+      }
+    ],
+    "data_confidence": "verified"
+  },
+  "credentials": {
+    "required_qualifications": [
+      "Bachelor's degree in Computer Science, Software Engineering, or equivalent",
+      "5+ years backend engineering experience (senior-level expectation)"
+    ],
+    "language_requirements": [
+      "English — professional working proficiency (required for most tech roles)",
+      "German — A1/A2 helpful for daily life, B1 beneficial for some employers"
+    ],
+    "degree_equivalency_notes": "Indian engineering degrees (B.Tech/B.E.) are generally recognised in Germany. Check anabin database for specific university recognition. IIT/NIT degrees are well-regarded.",
+    "data_confidence": "estimated"
+  },
+  "timeline": {
+    "typical_hiring_duration_months": { "min": 1, "max": 3 },
+    "visa_processing_months": { "min": 2, "max": 4 },
+    "total_estimated_months": { "min": 3, "max": 7 },
+    "data_confidence": "estimated"
+  },
+  "market_demand": {
+    "level": "high",
+    "scale_definition": "Scale: low | medium | high | very_high — based on job posting volume, employer sponsorship willingness, and shortage occupation list inclusion. 'high' = role is on the shortage occupation list and/or has significant unfilled positions.",
+    "data_confidence": "estimated"
+  }
+}
