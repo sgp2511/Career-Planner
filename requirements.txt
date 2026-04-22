@@ -1,0 +1,31 @@
+# Core
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+pydantic==2.11.1
+pydantic-settings==2.8.1
+email-validator==2.2.0
+
+# Database
+sqlalchemy==2.0.40
+aiosqlite==0.21.0
+
+# Authentication
+python-jose[cryptography]==3.4.0
+bcrypt==4.2.1
+python-multipart==0.0.20
+
+# LLM
+groq==0.25.0
+
+# HTTP Client (async)
+httpx==0.28.1
+
+# Testing
+pytest==8.3.5
+pytest-asyncio==0.26.0
+
+# CORS
+starlette==0.46.1
+
+# Static file serving
+aiofiles==25.1.0
