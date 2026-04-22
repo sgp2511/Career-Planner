@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Relocation Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <!-- AUTH SCREEN -->
+  <div id="auth-screen" class="screen">
+    <div class="auth-bg">
+      <div class="auth-card">
+        <div class="brand">
+          <span class="brand-icon">✈</span>
+          <h1>Career Relocation Planner</h1>
+          <p>Your personalised path to working abroad</p>
+        </div>
+
+        <div class="tab-row">
+          <button class="tab active" id="tab-login" onclick="switchTab('login')">Login</button>
+          <button class="tab" id="tab-register" onclick="switchTab('register')">Register</button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form id="login-form" onsubmit="handleLogin(event)">
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="login-email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" id="login-password" placeholder="••••••••" required />
+          </div>
+          <div id="login-error" class="error-msg hidden"></div>
+          <button type="submit" class="btn-primary" id="login-btn">
+            <span>Login</span>
+          </button>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="register-form" class="hidden" onsubmit="handleRegister(event)">
+          <div class="field">
+            <label>Full Name</label>
+            <input type="text" id="reg-name" placeholder="Jane Doe" />
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="reg-email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label>Password <span class="hint">(min 6 chars)</span></label>
+            <input type="password" id="reg-password" placeholder="••••••••" minlength="6" required />
+          </div>
+          <div id="register-error" class="error-msg hidden"></div>
+          <button type="submit" class="btn-primary" id="register-btn">
+            <span>Create Account</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN APP SCREEN -->
+  <div id="app-screen" class="screen hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon-sm">✈</span>
+        <span>Relocation Planner</span>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" onclick="showSection('generate')">
+          <span class="nav-icon">🗺</span> Generate Plan
+        </button>
+        <button class="nav-item" onclick="showSection('saved')">
+          <span class="nav-icon">📋</span> Saved Plans
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <div id="user-badge" class="user-badge"></div>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <!-- GENERATE SECTION -->
+      <section id="section-generate" class="content-section">
+        <div class="section-header">
+          <h2>Generate Relocation Plan</h2>
+          <p>Fill in your details and get a personalised action plan</p>
+        </div>
+
+        <div class="plan-layout">
+          <div class="plan-form-card">
+            <form id="plan-form" onsubmit="handleGeneratePlan(event)">
+              <div class="form-grid">
+                <div class="field">
+                  <label>Origin Country</label>
+                  <input type="text" id="origin" value="India" required />
+                </div>
+                <div class="field">
+                  <label>Destination</label>
+                  <select id="destination" required>
+                    <option value="">Loading...</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Target Role</label>
+                  <select id="target-role" required>
+                    <option value="">Select destination first</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Salary Expectation</label>
+                  <input type="number" id="salary" placeholder="45000" min="1" required />
+                </div>
+                <div class="field">
+                  <label>Timeline (months)</label>
+                  <input type="number" id="timeline" placeholder="12" min="1" max="120" required />
+                </div>
+                <div class="field">
+                  <label>Work Authorisation</label>
+                  <select id="work-auth" required>
+                    <option value="needs_sponsorship">Needs Sponsorship</option>
+                    <option value="no_constraint">No Constraint</option>
+                    <option value="has_right_to_work">Has Right to Work</option>
+                  </select>
+                </div>
+              </div>
+              <div id="plan-error" class="error-msg hidden"></div>
+              <div class="form-actions">
+                <button type="submit" class="btn-primary" id="generate-btn">
+                  <span>Generate Plan</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- RESULT PANEL -->
+          <div id="result-panel" class="result-panel hidden">
+            <div class="result-header">
+              <div>
+                <h3 id="result-title"></h3>
+                <p id="result-subtitle"></p>
+              </div>
+              <div class="feasibility-badge" id="feasibility-badge"></div>
+            </div>
+
+            <div class="result-tabs">
+              <button class="rtab active" onclick="switchResultTab('overview')">Overview</button>
+              <button class="rtab" onclick="switchResultTab('visa')">Visa Routes</button>
+              <button class="rtab" onclick="switchResultTab('action')">Action Steps</button>
+              <button class="rtab" onclick="switchResultTab('narrative')">AI Summary</button>
+            </div>
+
+            <div id="result-overview" class="result-content"></div>
+            <div id="result-visa" class="result-content hidden"></div>
+            <div id="result-action" class="result-content hidden"></div>
+            <div id="result-narrative" class="result-content hidden"></div>
+
+            <div class="save-row">
+              <input type="text" id="save-title" placeholder="Plan title (optional)" />
+              <button class="btn-secondary" onclick="savePlan()">💾 Save Plan</button>
+            </div>
+            <div id="save-msg" class="save-msg hidden"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SAVED PLANS SECTION -->
+      <section id="section-saved" class="content-section hidden">
+        <div class="section-header">
+          <h2>Saved Plans</h2>
+          <p>Your previously saved relocation plans</p>
+        </div>
+        <div id="saved-list" class="saved-list">
+          <div class="loading-msg">Loading saved plans...</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
